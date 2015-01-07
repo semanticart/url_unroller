@@ -6,6 +6,6 @@ An example of unrolling short urls in Elixir.
 Usage:
 
 ```elixir
-> {status, result} = UrlUnroller.unroll("http://bit.ly/1Bx0zo8")
-{:ok, "http://blog.semanticart.com/"}
+> {status, result, response_info} = UrlUnroller.unroll("http://bit.ly/1Bx0zo8")
+{:ok, "http://blog.semanticart.com/", ...}
 ```
