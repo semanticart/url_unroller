@@ -15,8 +15,8 @@ defmodule UrlUnroller do
   defp handle(300, _, response) do
     unroll(location(response))
   end
-  defp handle(200, url, _) do
-    {:ok, url}
+  defp handle(200, url, response) do
+    {:ok, url, {:ok, response}}
   end
   defp handle(normalized_status_code, url, response) when normalized_status_code == 400 or normalized_status_code == 500 do
     {:error, url, {:ok, response}}
