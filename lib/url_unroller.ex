@@ -22,8 +22,9 @@ defmodule UrlUnroller do
     {:error, url, {:ok, response}}
   end
 
+  # bitly returns capital-L location while t.co is lowercase
   defp location(response) do
-    response.headers["Location"]
+    response.headers["Location"] || response.headers["location"]
   end
 
   defp normalize_status_code(response) do
