@@ -1,6 +1,9 @@
 defmodule UrlUnroller do
-  @user_agent [ {"User-agent", "UrlUnroller jeff@semanticart.com"} ]
+  @user_agent [ {"User-agent", "UrlUnroller"} ]
 
+  @doc """
+  Returns a long url for a given short url.
+  """
   def unroll(url) do
     fetch(HTTPoison.head(url, @user_agent), url)
   end

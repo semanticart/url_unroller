@@ -5,7 +5,16 @@ defmodule UrlUnroller.Mixfile do
     [app: :url_unroller,
      version: "0.0.1",
      elixir: "~> 1.0",
-     deps: deps]
+     deps: deps,
+
+     name: "UrlUnroller",
+     source_url: "https://github.com/semanticart/url_unroller",
+     homepage_url: "https://github.com/semanticart/url_unroller",
+
+     # hex
+     package: package,
+     description: "A simple url unroller/unshortener"
+   ]
   end
 
   # Configuration for the OTP application
@@ -25,8 +34,14 @@ defmodule UrlUnroller.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [
-      {:httpoison, "~> 0.5"},
-    ]
+    [{:httpoison, "~> 0.5"},
+     {:earmark, "~> 0.1", only: :dev},
+     {:ex_doc, "~> 0.6", only: :dev}]
+  end
+
+  defp package do
+    [contributors: ["Jeffrey Chupp"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/semanticart/url_unroller"}]
   end
 end
