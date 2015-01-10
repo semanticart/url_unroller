@@ -2,7 +2,7 @@ defmodule UrlUnroller do
   @user_agent [ {"User-agent", "UrlUnroller"} ]
 
   @doc """
-  Returns a long url for a given short url. Also returns the response code and response info.
+  Returns a long url for a given short url. Also returns the last HTTPoison status and response struct.
 
   ## Examples
       iex> {status, url, _response_info} = UrlUnroller.unroll("http://bit.ly/1Bx0zo8")
