@@ -1,5 +1,6 @@
 defmodule UrlUnrollerTest do
   use ExUnit.Case
+  doctest UrlUnroller
 
   import UrlUnroller
 

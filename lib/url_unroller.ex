@@ -2,7 +2,16 @@ defmodule UrlUnroller do
   @user_agent [ {"User-agent", "UrlUnroller"} ]
 
   @doc """
-  Returns a long url for a given short url.
+  Returns a long url for a given short url. Also returns the response code and response info.
+
+  ## Examples
+      iex> {status, url, _response_info} = UrlUnroller.unroll("http://bit.ly/1Bx0zo8")
+      iex> {status, url}
+      {:ok, "http://blog.semanticart.com/"}
+
+      iex> {status, url, {response_status, response}} = UrlUnroller.unroll("http://semanticart.com/something-that-does-not-exist")
+      iex> {status, url, response_status, response.status_code}
+      {:error, "http://semanticart.com/something-that-does-not-exist", :ok, 404}
   """
   def unroll(url) do
     fetch(HTTPoison.head(url, @user_agent), url)
