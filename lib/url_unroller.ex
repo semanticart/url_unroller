@@ -36,7 +36,10 @@ defmodule UrlUnroller do
 
   # bitly returns capital-L location while t.co is lowercase
   defp location(response) do
-    response.headers["Location"] || response.headers["location"]
+    {_, url} = response.headers
+      |> Enum.find(fn({name, _}) -> String.downcase(name) == "location" end)
+
+    url
   end
 
   defp normalize_status_code(response) do
