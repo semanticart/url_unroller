@@ -3,7 +3,7 @@ defmodule UrlUnroller.Mixfile do
 
   def project do
     [app: :url_unroller,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.0",
      deps: deps,
 
@@ -40,7 +40,7 @@ defmodule UrlUnroller.Mixfile do
   end
 
   defp package do
-    [contributors: ["Jeffrey Chupp"],
+    [maintainers: ["Jeffrey Chupp"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/semanticart/url_unroller"}]
   end
