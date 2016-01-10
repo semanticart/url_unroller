@@ -35,8 +35,8 @@ defmodule UrlUnroller.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [{:httpoison, "~> 0.8.0"},
-     {:earmark, "~> 0.1", only: :dev},
-     {:ex_doc, "~> 0.6", only: :dev}]
+     {:earmark, "~> 0.2", only: :dev},
+     {:ex_doc, "~> 0.11", only: :dev}]
   end
 
   defp package do
