@@ -4,6 +4,8 @@ defmodule UrlUnroller do
   @doc """
   Returns a long url for a given short url. Also returns the last HTTPoison status and response struct.
 
+  Passing a long url is generally a noop (unless the url is a redirect).
+
   ## Examples
       iex> {status, url, _response_info} = UrlUnroller.unroll("http://bit.ly/1Bx0zo8")
       iex> {status, url}

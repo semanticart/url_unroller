@@ -30,4 +30,10 @@ defmodule UrlUnrollerTest do
     {_response_status, response} = response_info
     assert response.status_code == 404
   end
+
+  test "unrolling an already-unrolled url" do
+    {status, url, _response_info} = unroll("http://blog.semanticart.com")
+
+    assert {status, url} == {:ok, "http://blog.semanticart.com"}
+  end
 end
