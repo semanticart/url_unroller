@@ -5,14 +5,14 @@ defmodule UrlUnroller.Mixfile do
     [app: :url_unroller,
      version: "0.0.3",
      elixir: "~> 1.0",
-     deps: deps,
+     deps: deps(),
 
      name: "UrlUnroller",
      source_url: "https://github.com/semanticart/url_unroller",
      homepage_url: "https://github.com/semanticart/url_unroller",
 
      # hex
-     package: package,
+     package: package(),
      description: "A simple url unroller/unshortener"
    ]
   end

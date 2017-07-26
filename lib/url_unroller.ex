@@ -20,19 +20,19 @@ defmodule UrlUnroller do
   end
 
   defp fetch({:ok, response}, url) do
-    handle(normalize_status_code(response), url, response)
+    handle(response.status_code, url, response)
   end
   defp fetch({status, response}, url) do
     {:error, url, {status, response}}
   end
 
-  defp handle(300, _, response) do
+  defp handle(status, _, response) when status in 300..399 do
     unroll(location(response))
   end
-  defp handle(200, url, response) do
+  defp handle(status, url, response) when status in 100..299 do
     {:ok, url, {:ok, response}}
   end
-  defp handle(normalized_status_code, url, response) when normalized_status_code == 400 or normalized_status_code == 500 do
+  defp handle(status, url, response) when status in 400..599 do
     {:error, url, {:ok, response}}
   end
 
@@ -42,9 +42,5 @@ defmodule UrlUnroller do
       |> Enum.find(fn({name, _}) -> String.downcase(name) == "location" end)
 
     url
-  end
-
-  defp normalize_status_code(response) do
-    div(response.status_code, 100) * 100
   end
 end
